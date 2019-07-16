@@ -23,7 +23,7 @@ from geometry_msgs.msg import Pose, Quaternion
 # UR5 for 'UR5'
 # UR3 for 'UR3'
 
-ROBOT = 'UR10'
+ROBOT = 'UR5'
 
 
 # DH Parameter
@@ -322,12 +322,13 @@ def inv_kin(p, q_d, i_unit='r', o_unit='r'):
 
     theta = theta.tolist()
 
+    return theta
     # Select the most close solution
-    q_sol = select(theta, q_d)
+    # q_sol = select(theta, q_d)
 
-    # Output format
-    if o_unit == 'r': # (unit: radian)
-        return q_sol
-    elif o_unit == 'd': # (unit: degree)
-        return [degrees(i) for i in q_sol]
+    # # Output format
+    # if o_unit == 'r': # (unit: radian)
+    #     return q_sol
+    # elif o_unit == 'd': # (unit: degree)
+    #     return [degrees(i) for i in q_sol]
 
